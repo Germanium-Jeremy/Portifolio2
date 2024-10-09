@@ -2,9 +2,9 @@ import React from 'react'
 import Me from '../assets/me.png'
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
 import { Link } from 'react-router-dom'
-import Web from '../assets/Web.png'
-import Game from '../assets/Game.png'
-import Embedded from '../assets/Embed.png'
+import Web from '../assets/web.png'
+import Game from '../assets/game.png'
+import Embedded from '../assets/embed.png'
 
 const Landing = () => {
      const [text] = useTypewriter({
