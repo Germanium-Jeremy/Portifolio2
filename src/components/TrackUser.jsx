@@ -80,7 +80,7 @@ const TrackUser = () => {
   return (
      <>
      <section className={`face-container w-[8rem] h-[8rem] fixed top-0 left-0 z-[1] transition ${isSquished && 'transform scale-110'}`} onClick={handleSquish}>
-          <div className={`face bg-[#ccfc] w-full h-full relative`} ref={faceRef} style={{ transform: `rotateX(${-rotation.x}deg) rotateY(${-rotation.y}deg)` }}>
+          <div className={`face bg-[#ccfc] hover:bg-[#cefe] w-full h-full relative`} ref={faceRef} style={{ transform: `rotateX(${-rotation.x}deg) rotateY(${-rotation.y}deg)` }}>
                <div className={`eye absolute top-[2.5rem] left-[1.5rem] w-[2rem] h-[2rem] bg-white rounded-full flex items-center justify-center`}>
                     <div className="eyeball bg-black w-[0.75rem] h-[0.75rem] rounded-full" style={{
                     transform: `translate(${constrainMovement(-rotation.y * 2, 8)}px, ${constrainMovement(rotation.x * 2, 8)}px)`,

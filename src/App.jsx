@@ -1,12 +1,10 @@
 import './App.css'
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import Landing from './components/Landing'
+import { BrowserRouter } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { ScrollProvider } from './components/Contexts/ScrollContext'
-import Skills from './components/Skills'
-import Contact from './components/Contact'
 import TrackUser from './components/TrackUser'
+import AnimatedRoutes from './components/AnimatedRoutes'
 
 function App() {
   return (
@@ -16,11 +14,7 @@ function App() {
         <div className={`grad-back`}>
           <Header />
           <TrackUser />
-            <Routes location={location} key={location.pathname}>
-              <Route path='/' element={ <Landing /> } />
-              <Route path='/skills' element={ <Skills /> } />
-              <Route path='/contact' element={ <Contact /> } />
-            </Routes>
+          <AnimatedRoutes />
           <Footer />
         </div>
       </BrowserRouter>

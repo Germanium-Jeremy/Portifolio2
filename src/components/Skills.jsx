@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactCardFlip from 'react-card-flip'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 import ReactImg from '../assets/react.png'
 import Html from '../assets/html.png'
@@ -104,18 +105,19 @@ const Skills = () => {
      ]
      return (
           <>
-          <div className={`pt-[5rem] px-[5rem]`}>
+          <motion.div className={`pt-[5rem] px-[5rem]`} initial={{opacity: 0.5}} animate={{opacity: 1}} exit={{opacity: 0}}>
                <h2 className={`text-white text-2xl font-bold text-center wierd-font-3`}>Great AT</h2>
                <div className={`grid xl:grid-cols-3 gap-[3rem] relative items-center justify-center my-[4rem]`}>
                     {skills.map((skill, index) => {
                          const [isFlipped, setIsFlipped] = useState(false)
                          return (
                               <ReactCardFlip key={index} isFlipped={isFlipped} flipDirection='Oblique'>
-                                   <article className={`bg-gray-950 text-white px-[2rem] py-[2rem] rounded-lg flex flex-col gap-3 items-center justify-center shadow shadow-gray-800`}>
+                                   <motion.article className={`bg-gray-950 text-white px-[2rem] py-[2rem] rounded-lg flex flex-col gap-3 items-center justify-center shadow shadow-gray-800`}
+                                        initial={{filter: 'blur(120px)'}} animate={{filter: 'blur(0px)', transition: { duration: 1 }}} exit={{width: 0, height: 0}}>
                                         <img src={skill.icon} alt={skill.text} className={`w-[8rem] h-[7rem]`} />
                                         <h4 className={`font-bold text-lg wierd-font-2`}>{skill.text}</h4>
-                                        <button className={`rounded-lg px-[2rem] py-[.7rem] bg-[#ccfc] wierd-font-2`} onClick={() => setIsFlipped(true)}>Read More</button>
-                                   </article>
+                                        <button className={`rounded-lg px-[2rem] py-[.7rem] bg-[#ccfc] wierd-font-2 hover:bg-[#cefe]`} onClick={() => setIsFlipped(true)}>Read More</button>
+                                   </motion.article>
                                    <article className={`bg-gray-900 text-white px-[1.5rem] py-[1rem] rounded-lg shadow shadow-gray-800 min-h-[10rem] flex justify-center items-center`} onClick={() => setIsFlipped(false)}>
                                         <p className={`w-full h-full cursor-pointer`}>{skill.content}</p>
                                    </article>
@@ -123,11 +125,11 @@ const Skills = () => {
                          )
                     })}
                </div>
-          </div>
-          <div className={`bg-gray-950 py-[2rem] px-[5rem] flex flex-col items-center justify-center`}>
+          </motion.div>
+          <motion.div className={`bg-gray-950 py-[2rem] px-[5rem] flex flex-col items-center justify-center`} initial={{height: 0}} animate={{height: '100%'}} exit={{y: window.innerHeight}}>
                <h2 className={`text-white capitalize text-2xl font-bold wierd-font-3`}>let me get you a beautiful website.</h2>
-               <Link to={'/contact'} className={`px-[2rem] py-[.7rem] bg-[#ccfc] rounded-lg mt-[2rem] text-white wierd-font-2`}>Contact Me</Link>
-          </div>
+               <Link to={'/contact'} className={`px-[2rem] py-[.7rem] bg-[#ccfc] hover:bg-[#cefe] rounded-lg mt-[2rem] text-white wierd-font-2`}>Contact Me</Link>
+          </motion.div>
           </>
      )
 }
